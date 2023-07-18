@@ -12,7 +12,8 @@ import *as UserController from './controllers/UserController.js'
 import *as ChatController from './controllers/ChatController.js'
  const app=express();
  
-mongoose.connect('mongodb+srv://umedjonsharipov0005:umedumedumed1208@cluster0.hxghf6n.mongodb.net/blog?retryWrites=true&w=majority').
+mongoose.connect(
+ process.env.MONGODB_URI).
 then(()=>console.log("DataBase ok")).catch((err)=>console.log("db Error",err))
 
 app.use(express.json())
@@ -30,7 +31,7 @@ app.patch('/chat/:id',checkAuth,ChatController.update);
 
 
 
- app.listen(4444,(err)=>{
+ app.listen(process.env.PORT || 4444,(err)=>{
 if(err){
    return console.log(err)
 }
