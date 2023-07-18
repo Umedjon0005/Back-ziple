@@ -34,6 +34,6 @@ app.patch('/chat/:id',checkAuth,ChatController.update);
 if(err){
    return console.log(err)
 }
-console.log('Server ok')
+console.log('Server ok'+PORT)
  })
  //mongodb+srv://umedjonsharipov0005:umedumedumed1208@cluster0.hxghf6n.mongodb.net/blog?retryWrites=true&w=majority
