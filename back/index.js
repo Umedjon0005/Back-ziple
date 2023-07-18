@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import cors from 'cors'
-import { validationResult } from 'express-validator'
 import { registerValidation ,loginValidation} from './validartions/validations.js'
 
 import UserModel from './models/User.js'
@@ -12,8 +11,7 @@ import *as UserController from './controllers/UserController.js'
 import *as ChatController from './controllers/ChatController.js'
  const app=express();
  
-mongoose.connect(
- process.env.MONGODB_URI).
+mongoose.connect(process.env.MONGODB_URI).
 then(()=>console.log("DataBase ok")).catch((err)=>console.log("db Error",err))
 
 app.use(express.json())
